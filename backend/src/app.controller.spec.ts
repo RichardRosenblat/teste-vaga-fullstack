@@ -15,8 +15,14 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return health ok', () => {
+      expect(appController.getHealth()).toMatchObject({ health: 'ok' });
+    });
+    it('should return envfile', () => {
+      const mockEnv = 'envMock';
+      process.env.ENVFILE = mockEnv;
+
+      expect(appController.getEnv()).toMatchObject({ envFile: mockEnv });
     });
   });
 });
