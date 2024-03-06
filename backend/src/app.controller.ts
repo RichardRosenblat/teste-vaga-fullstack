@@ -9,9 +9,4 @@ export class AppController {
   getHealth() {
     return this.appService.getHealth();
   }
-
-  @Get('/env')
-  getEnv() {
-    return this.appService.getEnv();
-  }
 }
